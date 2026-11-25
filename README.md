@@ -51,8 +51,6 @@ Each axis has eight mapping slots. Click the selected axis again, or the collaps
 
 Range, Center, and Freeze are available for mapping. Use Live’s MIDI or Key Map mode to assign a controller or key to Center or Freeze.
 
-For recentering, use **Center** or a mapped controller/key. The receiver’s headphone-press option is currently unreliable.
-
 ## Help
 
 **Angles are not moving:** Check that your AirPods are connected to this Mac and being worn. Check **System Settings → Privacy & Security → Motion & Fitness**, then click Stop and Start.
