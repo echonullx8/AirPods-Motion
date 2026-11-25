@@ -1,89 +1,66 @@
 # AirPods Motion
 
-Control Ableton Live parameters with head movements from your AirPods Pro. Map yaw, pitch, and roll to up to eight targets per axis.
+Control Ableton Live with head movements from your AirPods Pro. Assign yaw, pitch, and roll to up to eight parameters each, with adjustable ranges and relative modulation.
 
-[Download the latest release](../../releases/latest) · [Report an issue](../../issues)
+[Download](https://github.com/echonullx8/AirPods-Motion/releases/latest) · [Report an issue](https://github.com/echonullx8/AirPods-Motion/issues)
 
 ## Requirements
 
-- Apple Silicon Mac running macOS 14 or later.
-- Ableton Live with Max for Live support.
-- AirPods Pro connected to the Mac and worn during use.
+- Apple Silicon Mac with macOS 14 or later
+- Ableton Live with Max for Live
+- AirPods Pro connected to your Mac and worn during use
 
-## Installation
+## Install
 
-1. Download `AirPodsMotion-Installer.zip` from Releases and extract it.
-2. Open `Install AirPods Motion.app` and click **Install**.
-3. The installer places the receiver in the system **Applications** folder and the device in your default **User Library → Presets → Audio Effects → Max Audio Effect**.
-4. For a custom User Library, click **Change Library Location…**. You can find your library location in Live’s **Settings → Library**.
-5. In Live’s browser, find **AirPods Motion** in your User Library and drag it onto a track.
+1. Download and extract **AirPodsMotion-Installer.zip**.
+2. Open **Install AirPods Motion.app** and click **Install**.
+3. In Live, open **User Library → Presets → Audio Effects → Max Audio Effect** and drag **AirPods Motion** onto a track.
 
-Existing files are backed up before replacement. Backups are stored in your personal `Library/Application Support/AirPods Motion/Backups` folder.
+The receiver is installed in **Applications**. If you use a custom User Library, choose **Change Library Location…** in the installer.
 
-This release uses local signing. macOS may display a developer verification message on first launch. Confirm that the download came from this repository’s release page. Allow Motion access for the receiver when macOS requests it.
+On first use, allow the receiver to access Motion & Fitness. macOS may also ask you to approve opening the downloaded app.
 
-## Quick start
+## Start controlling
 
-1. Enable Live’s audio engine and put on your AirPods Pro.
-2. Click **Start**. The receiver launches automatically.
-3. Move your head and check the **Angle** readings and animated head.
-4. Hold a comfortable neutral pose and click **Center** to set it as zero.
-5. Click **Yaw**, **Pitch**, or **Roll** to open that axis’s mapping list.
-6. Click **Map** on a row, then click the Live parameter you want to control.
+1. Enable Live’s audio engine, put on your AirPods Pro, and click **Start**.
+2. Hold a comfortable neutral pose and click **Center**.
+3. Select **Yaw**, **Pitch**, or **Roll**.
+4. Click **Map**, then click the parameter you want to control in Live.
+5. Adjust **Range**, **Min**, and **Max** to set the response.
 
-Use the collapse button in the mapping area to close the list. Turning off the selected axis button also collapses it; selecting another axis switches the list.
-
-## Headphone press to Center
-
-The receiver includes an experimental headphone-press option. It currently does not reliably receive AirPods short-press events and should not be relied on for performance. Use the device's Center button or map Center to a MIDI controller or computer key instead.
+Click **Stop** when finished. The receiver opens automatically when you click Start.
 
 ## Controls
 
-| Control | Function |
+| Control | What it does |
 | --- | --- |
-| Start | Launch the receiver and start motion input. |
-| Stop | Stop input and release parameter control. |
-| Center | Set the current head pose as zero. |
-| Yaw | Turn your head left or right. Left is negative; right is positive. |
-| Pitch | Tilt your head up or down. |
-| Roll | Tilt your head toward either shoulder. |
-| Angle | Current control angle in degrees. |
-| Motion bar | Angle relative to zero, marked by the center line. |
-| Range and ± | Motion required to reach each endpoint. A range of 30 covers −30° to +30°. |
-| Freeze / Frozen | Hold one axis at its current angle. Click again to resume tracking. All mappings on that axis hold together; other axes keep responding. |
-| Map | Select a target parameter. |
-| ABS | Directly control the target parameter. |
-| REL | Add modulation to the parameter’s existing base value. You can still adjust its original knob. |
-| Min / Max | Set each mapping’s output limits. Reverse the limits to invert its direction. |
-| Out | Control output: normalized target value in ABS, modulation offset in REL. This is not the target knob’s final displayed value. |
-| × | Clear a mapping. |
-| Status | Connection and receiver status in the bottom panel. |
+| Center | Treat your current head pose as zero. |
+| Yaw | Turn left or right. Left is negative; right is positive. |
+| Pitch | Look up or down. |
+| Roll | Tilt toward either shoulder. |
+| Angle | Show the current angle in degrees. |
+| Range ± | Set the movement needed to reach either endpoint. A value of 30 covers −30° to +30°. |
+| Freeze | Hold an axis at its current value. Click again to resume tracking. |
+| ABS | Control the target parameter directly. |
+| REL | Modulate around the target parameter’s own setting, which you can still adjust. |
+| Min / Max | Set the output limits. Swap them to reverse the response. |
+| Out | Show the control value: target percentage in ABS, modulation offset in REL. |
+| × | Remove the mapping. |
 
-All three Range parameters support Live automation and mapping from other modulation devices. The device also allows mapping to its own mappable parameters.
+Each axis has eight mapping slots. Click the selected axis again, or the collapse arrow, to close the mapping area.
 
-Freeze holds the axis input. In REL mode, the target parameter’s base value remains adjustable.
+Range, Center, and Freeze are available for mapping. Use Live’s MIDI or Key Map mode to assign a controller or key to Center or Freeze.
 
-## Troubleshooting
+For recentering, use **Center** or a mapped controller/key. The receiver’s headphone-press option is currently unreliable.
 
-### Angle readings do not change
+## Help
 
-- Check that your AirPods Pro are connected to this Mac and being worn.
-- Check the receiver’s permission under **System Settings → Privacy & Security → Motion & Fitness**.
-- Click **Stop**, then **Start**, and read the status message.
-- Keep a single active receiver instance. Multiple devices or standalone Max receiver patches listening on UDP port 9000 can compete for motion data.
+**Angles are not moving:** Check that your AirPods are connected to this Mac and being worn. Check **System Settings → Privacy & Security → Motion & Fitness**, then click Stop and Start.
 
-### Angle changes, but the mapped parameter does not
+**Angles move, but the instrument does not respond:** Enable Live’s audio engine, check Freeze and the output limits, and map the target again.
 
-- Enable Live’s audio engine.
-- Click **Map** again and select the target parameter.
-- Check the axis’s Freeze state and the mapping’s Min / Max limits.
+**The receiver cannot be found:** Run the installer again and check for **AirPods Motion Bridge.app** in Applications.
 
-### The receiver cannot be found
+Use one active AirPods Motion device at a time.
 
-Run the installer again and check that **AirPods Motion Bridge.app** is in the system **Applications** folder.
-
-## Files and feedback
-
-The `.amxd` includes its JavaScript dependencies. The installer installs the receiver App separately.
-
-This repository distributes the installer and documentation. When reporting an issue, include your macOS version, Live version, AirPods model, and status message. Screenshots are useful for interface issues.
+For help, [open an issue](https://github.com/echonullx8/AirPods-Motion/issues) with your macOS version, Live version, AirPods model, and the status shown on the device.
